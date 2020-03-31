@@ -1,11 +1,12 @@
 import synapsepy as sp
 from data import business_docs, beneficial_owner_docs
+from credentials import client_id, client_secret, fingerprint, ip
 
 client = sp.Client(
-    client_id='client_id_2bb1e412edd311e6bd04e285d6015267',
-    client_secret='client_secret_6zZVr8biuqGkyo9IxMO5jY2QlSp0nmD4EBAgKcJW',
-    fingerprint='e83cf6ddcf778e37bfe3d48fc78a6502062fc1030449628c699ef3c4ffa6f9a2000b8acc3c4c0addd8013285bb52c89e5267b628ca02fa84a6d71fe186b7cd5d',
-    ip_address='127.0.0.1',
+    client_id=client_id,
+    client_secret=client_secret,
+    fingerprint=fingerprint,
+    ip_address=ip,
     devmode=True
 )
 
@@ -14,12 +15,8 @@ print("****** DISCLAIMER: This script DOES NOT perform any validation, please ma
 #'5e7bedbe9f1eef0092a3b3f9'
 
 user_id = input("User ID: ")
-number_of_other_documents = input("Number of 'Other' Documents: ")
-print("Enter y/n for to require the following KYC for the business")
-
-ip = '127.0.0.1'
-fingerprint = 'e83cf6ddcf778e37bfe3d48fc78a6502062fc1030449628c699ef3c4ffa6f9a2000b8acc3c4c0addd8013285bb52c89e5267b628ca02fa84a6d71fe186b7cd5d'
-
+# number_of_other_documents = input("Number of 'Other' Documents: ")
+# print("Enter y/n for to require the following KYC for the business")
 
 user = client.get_user(
     user_id, ip=ip, fingerprint=fingerprint, full_dehydrate=True)
